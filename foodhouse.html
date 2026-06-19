@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FoodHouse — Project by Salisma Maharjan</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* === PROJECT PAGE SPECIFIC STYLES === */
+
+    .project-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 40px 60px;
+      flex-direction: column;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      transition: color 0.3s;
+    }
+
+    .back-btn:hover { color: var(--text); }
+
+    .project-badge {
+      display: inline-block;
+      background: rgba(127, 90, 240, 0.15);
+      border: 1px solid rgba(127, 90, 240, 0.4);
+      color: var(--purple);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .project-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--purple), var(--pink), var(--blue));
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 4s ease infinite;
+      margin-bottom: 20px;
+    }
+
+    .project-hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .project-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 2px solid var(--purple);
+      color: var(--purple);
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--purple);
+      color: white;
+    }
+
+    /* === TAGS ROW === */
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 36px;
+    }
+
+    .tags-row span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: rgba(127, 90, 240, 0.12);
+      color: var(--purple);
+      border: 1px solid rgba(127, 90, 240, 0.3);
+    }
+
+    /* === SCREENSHOTS === */
+    .screenshots-section {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .screenshots-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 50px;
+    }
+
+    .screenshot-block {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 80px;
+      flex-wrap: wrap;
+    }
+
+    .screenshot-block.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .screenshot-img {
+      flex: 1;
+      min-width: 280px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(127, 90, 240, 0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .screenshot-img:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(127, 90, 240, 0.2);
+    }
+
+    .screenshot-img img {
+      width: 100%;
+      display: block;
+    }
+
+    .screenshot-info {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .screenshot-info .num {
+      font-size: 4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .screenshot-info h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .screenshot-info p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* === FEATURES === */
+    .features-section {
+      padding: 80px 40px;
+      text-align: center;
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid rgba(127,90,240,0.1);
+      border-bottom: 1px solid rgba(127,90,240,0.1);
+    }
+
+    .features-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 50px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(127,90,240,0.2);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: left;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--pink);
+    }
+
+    .feature-icon { font-size: 2rem; margin-bottom: 14px; }
+
+    .feature-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* === BOTTOM CTA === */
+    .project-cta {
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .project-cta h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .project-cta p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 36px;
+    }
+
+    @media (max-width: 768px) {
+      .project-hero h1 { font-size: 2.2rem; }
+      .screenshot-block, .screenshot-block.reverse { flex-direction: column; }
+      .screenshot-info .num { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Salisma Maharjan</div>
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    <div class="project-badge">Featured Project</div>
+    <h1>🍔 FoodHouse</h1>
+    <p>A full-stack food delivery web app where users can browse local stores, add products to cart, and checkout — while sellers manage their own dashboard.</p>
+    <div class="project-btns">
+      <a href="https://github.com/Salismaa/foodhouse" target="_blank" class="btn">View on GitHub</a>
+      <a href="#" target="_blank" class="btn-outline">Live Demo ↗</a>
+    </div>
+    <div class="tags-row">
+      <span>PHP</span>
+      <span>MySQL</span>
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>Full Stack</span>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <div class="screenshots-section">
+    <h2>Project Screenshots</h2>
+
+    <div class="screenshot-block">
+      <div class="screenshot-img">
+        <img src="homepage.png" alt="FoodHouse Homepage" />
+      </div>
+      <div class="screenshot-info">
+        <div class="num">01</div>
+        <h3>Homepage & Hero</h3>
+        <p>A clean, modern landing page with a bold hero banner encouraging users to "Shop Local. Fresh & Fast!" with clear navigation and a search bar for groceries.</p>
+      </div>
+    </div>
+
+    <div class="screenshot-block reverse">
+      <div class="screenshot-img">
+        <img src="store.png" alt="FoodHouse Stores Page" />
+      </div>
+      <div class="screenshot-info">
+        <div class="num">02</div>
+        <h3>Local Stores Listing</h3>
+        <p>Users can browse nearby stores with ratings, reviews, and opening hours. Each store card shows delivery status and a direct "Shop Now" button.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🛒</div>
+        <h4>Shopping Cart</h4>
+        <p>Add, update, and remove items from cart with real-time quantity management.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏪</div>
+        <h4>Seller Dashboard</h4>
+        <p>Sellers can create stores, manage products, and track incoming orders.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h4>User Authentication</h4>
+        <p>Secure login and signup system for both buyers and sellers with session management.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <h4>Checkout System</h4>
+        <p>Smooth checkout flow with order summary and order history tracking.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h4>Product Search</h4>
+        <p>Search across all stores and products to find what you need quickly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h4>Order Management</h4>
+        <p>Users can view their order history and sellers can manage and fulfill orders.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="project-cta">
+    <h2>Want to see more? 👀</h2>
+    <p>Check out the full source code on GitHub or go back to see my other work.</p>
+    <div class="project-btns">
+      <a href="https://github.com/Salismaa/foodhouse" target="_blank" class="btn">View Source Code</a>
+      <a href="index.html" class="btn-outline">← Back to Portfolio</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Designed & Built by <span>Salisma Maharjan</span> 💜</p>
+    <p class="footer-sub">© 2026 · All rights reserved</p>
+  </footer>
+
+</body>
+</html>
