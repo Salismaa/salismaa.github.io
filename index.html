@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>My Portfolio</title>
+    <title>Salisma Maharjan | Portfolio</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -29,7 +29,7 @@
           <a href="#projects" class="btn">View My Work</a>
         </div>
         <div class="hero-image">
-          <img src="image.jpg" alt="Your Photo" class="profile-pic"/>
+          <img src="image.jpg" alt="Salisma Maharjan" class="profile-pic"/>
         </div>
       </div>
     </section>
@@ -148,10 +148,10 @@
           </a>
         </div>
 
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea rows="5" placeholder="Your Message..." required></textarea>
+        <form class="contact-form" action="https://formspree.io/f/mgobgevo" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea rows="5" name="message" placeholder="Your Message..." required></textarea>
           <button type="submit" class="btn">Send Message ✉️</button>
         </form>
 
